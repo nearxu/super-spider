@@ -1,6 +1,6 @@
 import requests
 
-r = requests.get('https://api.github.com/user', auth=('nearxu', 'xsp3833858'))
+r = requests.get('*', auth=('*', '*'))
 
 print(r.status_code)
 
