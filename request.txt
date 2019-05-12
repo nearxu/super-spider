@@ -1,0 +1,12 @@
+wordcloud
+requests
+jieba
+pymongo
+matplotlib
+BeautifulSoup4
+bson
+scrapy
+pyecharts
+matplotlib
+numpy
+pandas
