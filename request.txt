@@ -10,3 +10,5 @@ pyecharts
 matplotlib
 numpy
 pandas
+bs4
+selenium

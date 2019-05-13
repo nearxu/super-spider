@@ -16,3 +16,17 @@ https://zhuanlan.zhihu.com/p/62987192
 brew install python3
 
 ### pip install request.txt
+
+
+### webdriver
+
+from https://blog.csdn.net/u011818148/article/details/80589040
+
+chromedriver from http://chromedriver.storage.googleapis.com/index.html?path=74.0.3729.6/
+
+download chromedriver
+
+sudo cp -r  chromedriver /usr/local/bin/
+
+
+
