@@ -135,30 +135,30 @@ def read_top():
 
 
 def main():
-    # name = '演员'
-    # id = 32507038
+    name = 'Lemon - (电视剧《非自然死亡》主题曲 / ドラマ「アンナチュラル」主題歌)'
+    id = 536622304
 
-    for item in read_top():
-        name = item[1]
-        id = item[0]
+    # for item in read_top():
+    #     name = item[1]
+    #     id = item[0]
         
-        filepath = name + '.txt'
-        print(filepath)
+    filepath = name + '.txt'
+    print(filepath)
 
-        page = 1
-        params,encSecKey = get_params(page)
+    page = 1
+    params,encSecKey = get_params(page)
 
-        url = 'https://music.163.com/weapi/v1/resource/comments/R_SO_4_' + str(id) + '?csrf_token='
-        data = {'params': params, 'encSecKey': encSecKey}
-        # url = 'https://music.163.com/#/song?id=19292984'
-        # 获取第一页评论
-        time.sleep(1)
-        html = get_comments_json(url, data)
+    url = 'https://music.163.com/weapi/v1/resource/comments/R_SO_4_' + str(id) + '?csrf_token='
+    data = {'params': params, 'encSecKey': encSecKey}
+    # url = 'https://music.163.com/#/song?id=19292984'
+    # 获取第一页评论
+    time.sleep(1)
+    html = get_comments_json(url, data)
 
-        total = html['total']
+    total = html['total']
 
-        pages = math.ceil(total/20)
+    pages = math.ceil(total/20)
 
-        hotcomments(html,name,page,pages,total,filepath)
+    hotcomments(html,name,page,pages,total,filepath)
 
 main()

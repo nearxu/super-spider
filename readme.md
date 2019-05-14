@@ -29,4 +29,9 @@ download chromedriver
 sudo cp -r  chromedriver /usr/local/bin/
 
 
+### pycrypto 加密模块
+
+from https://blog.csdn.net/a624806998/article/details/78596543
+
+
 
