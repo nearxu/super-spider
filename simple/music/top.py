@@ -7,6 +7,7 @@ import csv
 
 def get_html_src(url):
     driver = webdriver.Chrome()
+    self.url = 'https://www.lagou.com/jobs/list_%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91?city=%E6%88%90%E9%83%BD&cl=false&fromSearch=true&labelWords=&suginput='
     driver.get(url)
 
     driver.implicitly_wait(3)

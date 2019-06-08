@@ -7,6 +7,7 @@ import codecs
 import base64
 import csv
 import time
+import re
 
 def get_comments_json(url,data):
     headers={'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
@@ -135,30 +136,27 @@ def read_top():
 
 
 def main():
-    name = 'Lemon - (电视剧《非自然死亡》主题曲 / ドラマ「アンナチュラル」主題歌)'
-    id = 536622304
+    for item in read_top():
+        name = item[1]
+        id = item[0]
+        filepath = name + '.txt'
+        filepath = re.sub('[\s/]', '', filepath)
+        print(filepath)
 
-    # for item in read_top():
-    #     name = item[1]
-    #     id = item[0]
-        
-    filepath = name + '.txt'
-    print(filepath)
+        page = 1
+        params,encSecKey = get_params(page)
 
-    page = 1
-    params,encSecKey = get_params(page)
+        url = 'https://music.163.com/weapi/v1/resource/comments/R_SO_4_' + str(id) + '?csrf_token='
+        data = {'params': params, 'encSecKey': encSecKey}
+        # url = 'https://music.163.com/#/song?id=19292984'
+        # 获取第一页评论
+        time.sleep(1)
+        html = get_comments_json(url, data)
 
-    url = 'https://music.163.com/weapi/v1/resource/comments/R_SO_4_' + str(id) + '?csrf_token='
-    data = {'params': params, 'encSecKey': encSecKey}
-    # url = 'https://music.163.com/#/song?id=19292984'
-    # 获取第一页评论
-    time.sleep(1)
-    html = get_comments_json(url, data)
+        total = html['total']
 
-    total = html['total']
+        pages = math.ceil(total/20)
 
-    pages = math.ceil(total/20)
-
-    hotcomments(html,name,page,pages,total,filepath)
+        hotcomments(html,name,page,pages,total,filepath)
 
 main()
